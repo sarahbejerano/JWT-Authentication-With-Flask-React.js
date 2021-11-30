@@ -4,12 +4,17 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token,jwt_required
+from argon2 import PasswordHasher
+
+
+ph = PasswordHasher()
 
 api = Blueprint('api', __name__)
 
 
 @api.route('/hello', methods=['POST', 'GET'])
+@jwt_required ()
 def handle_hello():
 
     response_body = {
@@ -35,7 +40,7 @@ def register_user():
     # create a user
     user = User(
         email=data["email"], 
-        password=data['password'], 
+        password=ph.hash(data['password']), 
         is_active=True
         )
     db.session.add(user)
@@ -54,7 +59,9 @@ def login():
         return '', 404
     
 
-    if user.password != data['password']:
+    try:
+        ph.verify(user.password, data['password'])
+    except: 
         return 'wrong-password', 400
 
     access_token = create_access_token(identity=user.id)

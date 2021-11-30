@@ -3,7 +3,7 @@ POST https://3001-indigo-otter-p3lo1hia.ws-us17.gitpod.io/api/register
 content-type: application/json
 
 {
-    "email": "pensamiento1984@yahoo.es",
+    "email": "lola20@yahoo.es",
     "password": "admin1234"
 }
 
@@ -12,6 +12,14 @@ POST https://3001-indigo-otter-p3lo1hia.ws-us17.gitpod.io/api/login
 content-type: application/json
 
 {
-    "email": "pensamiento1984@yahoo.es",
+    "email": "lola20@yahoo.es",
     "password": "admin1234"
 }
+
+###
+GET  https://3001-indigo-otter-p3lo1hia.ws-us17.gitpod.io/api/hello
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzODIzODA2NywianRpIjoiYzE4ZTA0YmUtYjFhYy00YTcxLTkxNDMtOTljMGJjMTc1MDIwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MTcsIm5iZiI6MTYzODIzODA2NywiZXhwIjoxNjM4MjM4OTY3fQ.N0ewFsBr4MLn8KlE2aTQ6aNbdvPTGjgzumHNC6eL8FE
+
+
+
+
