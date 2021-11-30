@@ -1,0 +1,17 @@
+
+POST https://3001-indigo-otter-p3lo1hia.ws-us17.gitpod.io/api/register
+content-type: application/json
+
+{
+    "email": "pensamiento1984@yahoo.es",
+    "password": "admin1234"
+}
+
+###
+POST https://3001-indigo-otter-p3lo1hia.ws-us17.gitpod.io/api/login
+content-type: application/json
+
+{
+    "email": "pensamiento1984@yahoo.es",
+    "password": "admin1234"
+}
